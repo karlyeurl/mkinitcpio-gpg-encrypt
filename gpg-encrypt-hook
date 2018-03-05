@@ -72,6 +72,8 @@ EOF
                 # If keyfile is a gpg-key try do decode it
                 if [ $GPG = true ]; then
                     echo "GPG key detected, trying do decrypt"
+                    # Export GnuPG's tty
+                    export GPG_TTY=/dev/tty0
                     # Start the smartcard daemon
                     /usr/bin/pcscd --auto-exit &> /dev/null
 
